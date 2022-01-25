@@ -1,0 +1,8 @@
+    def maxProfit(self, prices: List[int]) -> int:
+        minp=-9999999
+        maxp=0
+        for i in range(0,len(prices)):
+            p,q=maxp,minp
+            minp=max(q,p-prices[i])
+            maxp=max(p,q+prices[i])
+        return maxp if prices else 0 
