@@ -1,0 +1,46 @@
+def first(self,nums,target):
+        s = 0
+        end = len(nums)-1
+        res=-1
+        while s <= end:
+            mid = s + (end - s)//2
+            if(nums[mid] == target):
+                res=mid
+                end=mid-1
+            elif target>nums[mid]:
+                s=mid+1
+            else:
+                end=mid-1
+        return res
+    
+    def last(self,nums,target):
+        s = 0
+        end = len(nums)-1
+        res = -1
+        while s <= end:
+            mid = s + (end - s)//2
+            if(nums[mid] == target):
+                res=mid
+                s=mid+1
+            elif target>nums[mid]:
+                s=mid+1
+            else:
+                end=mid-1
+        return res     
+       
+            
+                
+
+    
+    
+    def targetIndices(self, nums: List[int], target: int) -> List[int]:
+        nums.sort()
+        a=self.first(nums,target)
+        b=self.last(nums,target)
+        c=[]
+        
+        for i in range(a,b+1):
+            c.append(i)
+        if c[0]==-1:
+            return []
+        return c
