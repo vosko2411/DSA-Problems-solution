@@ -1,0 +1,13 @@
+def minOperations(self, nums: List[int]) -> int:
+        if len(nums) == 1:
+            return 0
+        last = nums[0]
+        res = 0
+        for i in range(1, len(nums)):
+            num = nums[i]
+            if num <= last:
+                res += last + 1 - num
+                last = last + 1
+            else:
+                last = num
+        return res
