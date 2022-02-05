@@ -1,0 +1,20 @@
+def plusOne(self, digits: List[int]) -> List[int]:
+        e=len(digits)-1
+        rem=1
+        ''''if len(digits)==1:
+            digits[0]+=1
+            return digits'''''
+        while(e>=0):
+            if e==0 and (digits[e]+1)//10==1:
+                digits[e]=1
+                digits.append(0)
+                e-=1
+            elif ((digits[e]+rem)//10)>0:
+                digits[e]+=rem
+                rem=digits[e]//10
+                digits[e]=digits[e]%10
+                e-=1
+            elif (digits[e]+1)//10==0:
+                digits[e]=digits[e]+1
+                break
+        return digits
