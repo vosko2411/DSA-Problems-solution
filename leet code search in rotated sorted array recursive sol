@@ -1,0 +1,20 @@
+ def search(self, nums: List[int], target: int) -> int:
+        s=0
+        e=len(nums)-1
+        k=self.searc(nums,s,e,target)
+        return k
+    def searc(self,A,l,h,key):
+        if l>h:
+            return -1
+        mid = l + (h - l)//2
+        if A[mid]==key:
+            return mid
+                
+        if A[l] <= A[mid]:
+            if key >= A[l] and key <= A[mid]:
+                return self.searc(A ,l ,mid-1,key)
+            return self.searc(A ,mid+1 ,h ,key)
+            
+        if key>=A[mid] and key <= A[h]:
+            return self.searc(A, mid+1, h, key)
+        return self.searc(A, l, mid-1, key)
