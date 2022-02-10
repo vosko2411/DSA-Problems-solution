@@ -1,0 +1,13 @@
+def singleNonDuplicate(self, nums: List[int]) -> int:
+        s = 0
+        e = len(nums)-1
+        if len(nums)%2==0:
+            return -1
+ 
+        while(s<e):
+            mid = 2*((s+e)//4) #single element always present on a even index(0 base indexing)
+            if(nums[mid]!=nums[mid+1]):
+                e = mid
+            else:
+                s=mid+2
+        return nums[s]
