@@ -1,0 +1,16 @@
+def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        s = 0
+        e = 1
+        l = len(nums)
+        mi = l + 1
+        su = 0
+        for i in range(len(nums)):
+            su =su+nums[i]
+          
+            while su >= target:
+                diff = i + 1 - s
+                mi = min(mi,diff)
+                su = su - nums[s]
+                s+=1
+        return mi%(l+1)
+            
